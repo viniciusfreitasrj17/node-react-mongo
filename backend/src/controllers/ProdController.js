@@ -47,7 +47,7 @@ module.exports = {
             })
         }
 
-        res.json(dest)
+        res.json(prod)
     },
 
     async destroy(req, res) {
