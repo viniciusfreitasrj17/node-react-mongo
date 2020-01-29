@@ -1,5 +1,4 @@
 const Prod = require('../model/Prod')
-const ifHaveFilter = require('../utils/ifHaveFilter')
 
 // Controller Functions:
 
@@ -34,16 +33,12 @@ module.exports = {
     },
 
     async update(req, res) {
-        const { name, description, detail, imgUrl, price, amount } = req.body
+        let prod = req.body
         const _id = req.params.id
-        let prod = await Prod.findOne({ _id })
-        const dest = ifHaveFilter(prod,{ name, description, detail, imgUrl, price, amount })
 
-        if (prod) {
-            prod = Prod.update({ _id }, {
-                $set: {
-                    dest
-                }
+        if(prod) {
+            prod = await Prod.updateOne({ _id }, {
+                $set: prod
             })
         }
 
@@ -52,7 +47,7 @@ module.exports = {
 
     async destroy(req, res) {
         const _id = req.params.id
-        const prod = Prod.remove({ _id })
+        const prod = await Prod.deleteOne({ _id })
 
         res.json(prod)
     }
