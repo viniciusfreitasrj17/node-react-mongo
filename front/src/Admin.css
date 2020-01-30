@@ -1,0 +1,66 @@
+main#admin {
+    width: 3px;
+    background-color: #fff;
+    box-shadow: 9px 8px 3px 0px rgba(0,0,0,0.7);
+    /* border-radius: 15px; */
+    padding: 30px 20px;
+    flex: 1;
+}
+
+main#admin strong {
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    color: #333;
+}
+
+main#admin form {
+    margin-top: 30px;
+}
+
+main#admin form .input-block {
+    margin-top: 20px;
+}
+
+main#admin form .input-block label {
+    color: #565656;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+}
+
+main#admin form .input-block input {
+    width: 100%;
+    height: 32px;
+    font-size: 18px;
+    color: #666;
+    border: 0;
+    border-bottom: 1px solid #866868;
+}
+
+main#admin form .input-block textarea {
+    font-size: 15px;
+    padding: 10px;
+    line-height: 1.5;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 1px 1px 1px #999;
+    width: 100%;
+}
+
+main#admin form button[type=submit] {
+    width: 100%;
+    border: 0;
+    margin-top: 30px;
+    background-color: #1ccadc;
+    border-radius: 2px;
+    padding: 15px 20px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 1s;
+}
+
+main#admin form button[type=submit]:hover {
+    background-color: #0b666f;
+}

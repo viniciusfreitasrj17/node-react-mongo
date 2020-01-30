@@ -20,3 +20,13 @@ body {
 body, input, button {
     font-family: Roboto, sans-serif;
 }
+
+#root {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#root main#admin {
+    max-width: 600px;
+    margin: 0 auto;
+}
