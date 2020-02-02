@@ -4,6 +4,7 @@ import api from './service/api'
 
 import './Home.css'
 import './Admin.css'
+import './Register.css'
 
 const Routes = () => {
   const [prod, setProd] = useState([])
@@ -48,6 +49,31 @@ const Routes = () => {
         )} />
         <Route exact path='/admin' component={() => (
           <main id='admin' >
+           <ul>
+             {prod.map(p => (
+               <li>
+                 <img
+                   src={p.imgUrl}
+                   alt={p.name}
+                 />
+                 <header>
+                   <div className='prod-info' >
+                     <strong> {p.name} </strong>
+                     <span> {p.description} </span>
+                     <p> {p.detail} </p>
+                   </div>
+                   <div className='prod-add' >
+                     {(p.amount > 0 ? <span id='qtd-none' /> : <span id='qtd'>FORA DO ESTOQUE</span>)}
+                     <span id='price' > {`R$ ${p.price}`} </span>
+                   </div>
+                 </header>
+               </li>
+             ))}
+           </ul>
+         </main>
+        )} />
+        <Route exact path='/register' component={() => (
+          <main id='register' >
             <strong>Cadastro de Produto</strong>
             <form onSubmit={() => { }} >
               <div className='input-block' >
