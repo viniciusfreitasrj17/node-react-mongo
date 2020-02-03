@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import api from './service/api'
 
-import './Home.css'
 import './Admin.css'
 
 import Register from './components/Register'
+import Home from './components/Home'
 
 const Routes = () => {
   const [prod, setProd] = useState([])
@@ -32,25 +32,7 @@ const Routes = () => {
         <Route exact path='/' component={() => (
           <main id='home' >
             <ul>
-              {prod.map(p => (
-                <li>
-                  <img
-                    src={p.imgUrl}
-                    alt={p.name}
-                  />
-                  <header>
-                    <div className='prod-info' >
-                      <strong> {p.name} </strong>
-                      <span> {p.description} </span>
-                      <p> {p.detail} </p>
-                    </div>
-                    <div className='prod-add' >
-                      {(p.amount > 0 ? <span id='qtd-none' /> : <span id='qtd'>FORA DO ESTOQUE</span>)}
-                      <span id='price' > {`R$ ${p.price}`} </span>
-                    </div>
-                  </header>
-                </li>
-              ))}
+              {prod.map(p => <Home key={p._id} p={p} /> )}
             </ul>
           </main>
         )} />
@@ -80,7 +62,6 @@ const Routes = () => {
          </main>
         )} />
         <Route exact path='/register' component={() => <Register onSubmit={handleSubmit} /> } />
-        <Route exact path='/api' component={() => <>{prod.map(p => <div>{Object.entries(p)}</div>)}</>} />
       </Switch>
     </BrowserRouter>
   )
