@@ -4,7 +4,8 @@ import api from './service/api'
 
 import './Home.css'
 import './Admin.css'
-import './Register.css'
+
+import Register from './components/Register'
 
 const Routes = () => {
   const [prod, setProd] = useState([])
@@ -18,6 +19,12 @@ const Routes = () => {
 
     loadProd()
   }, [])
+
+  async function handleSubmit(d) {
+    const { data } = api.post('/prod', d)
+    
+    setProd([...prod, data])
+  }
 
   return (
     <BrowserRouter>
@@ -72,75 +79,7 @@ const Routes = () => {
            </ul>
          </main>
         )} />
-        <Route exact path='/register' component={() => (
-          <main id='register' >
-            <strong>Cadastro de Produto</strong>
-            <form onSubmit={() => { }} >
-              <div className='input-block' >
-                <label htmlFor='name' >Nome do Produto</label>
-                <input
-                  name='name'
-                  id='name'
-                  required
-                  value=''
-                />
-              </div>
-
-              <div className='input-block' >
-                <label htmlFor='description' >Descrição do Produto</label>
-                <input
-                  name='description'
-                  id='description'
-                  required
-                  value=''
-                />
-              </div>
-
-              <div className='input-block' >
-                <label htmlFor='detail' >Detalhes</label>
-                <textarea
-                  name='detail'
-                  id='detail'
-                  required
-                  rows='2'
-                  cols='33'
-                  value=''
-                />
-              </div>
-
-              <div className='input-block' >
-                <label htmlFor='imgUrl' >Link da Imagem</label>
-                <input
-                  name='imgUrl'
-                  id='imgUrl'
-                  required
-                  value=''
-                />
-              </div>
-
-              <div className='input-block' >
-                <label htmlFor='price' >Preço do Produto</label>
-                <input
-                  name='price'
-                  id='price'
-                  required
-                  value=''
-                />
-              </div>
-
-              <div className='input-block' >
-                <label htmlFor='amount' >Quantidade</label>
-                <input
-                  name='amount'
-                  id='amount'
-                  value=''
-                />
-              </div>
-
-              <button type='submit' >Cadastrar</button>
-            </form>
-          </main>
-        )} />
+        <Route exact path='/register' component={() => <Register onSubmit={handleSubmit} /> } />
         <Route exact path='/api' component={() => <>{prod.map(p => <div>{Object.entries(p)}</div>)}</>} />
       </Switch>
     </BrowserRouter>
