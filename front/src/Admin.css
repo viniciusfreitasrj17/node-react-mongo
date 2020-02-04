@@ -3,8 +3,18 @@ main#admin {
     background-color: #fff;
     box-shadow: 9px 8px 3px 0px rgba(0,0,0,0.7);
     /* border-radius: 15px; */
-    padding: 30px 20px;
+    padding: 0 20px 30px 20px;
     flex: 1;
+}
+
+main#admin div#titlePainel {
+    color: #1e78a5;
+    font-size: 40px;
+    padding: 5px;
+    margin: 20px 0;
+    background: #FFF;
+    box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.7);
+    text-align: center;
 }
 
 main ul {
@@ -22,6 +32,15 @@ li {
     /* border-radius: 15px; */
     padding: 0px;
     
+}
+
+li div#fecharProduto {
+    /* text-align: right; */
+    border: #4c4c4c 1px solid;
+    padding: 1px;
+    background-color: #c31010;
+    display: inline-block;
+    position: absolute;
 }
 
 li img {

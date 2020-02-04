@@ -38,9 +38,15 @@ const Routes = () => {
         )} />
         <Route exact path='/admin' component={() => (
           <main id='admin' >
+           <div id='titlePainel'>
+             Painel Administrativo
+           </div>
            <ul>
              {prod.map(p => (
                <li>
+                 <div id='fecharProduto'>
+                   X
+                 </div>
                  <img
                    src={p.imgUrl}
                    alt={p.name}
