@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import api from './service/api'
 
-import './Admin.css'
-
 import Register from './components/Register'
 import Home from './components/Home'
+import Admin from './components/Admin'
 
 const Routes = () => {
   const [prod, setProd] = useState([])
-
+  const [load, setLoad] = useState(0)
+  
   useEffect(() => {
     async function loadProd() {
       const { data } = await api.get('/prod')
@@ -18,12 +18,21 @@ const Routes = () => {
     }
 
     loadProd()
-  }, [])
+  }, [load])
 
   async function handleSubmit(d) {
-    const { data } = api.post('/prod', d)
+    const { data } = await api.post('/prod', d)
     
     setProd([...prod, data])
+  }
+
+  async function deleteItemProd(d) {
+    const { data } = await api.delete(`/prod/${d}`)
+
+    if(data.deletedCount) {
+      // document.location.reload(true)
+      setLoad(load + 1)
+    }
   }
 
   return (
@@ -42,28 +51,7 @@ const Routes = () => {
              Painel Administrativo
            </div>
            <ul>
-             {prod.map(p => (
-               <li>
-                 <div id='fecharProduto'>
-                   X
-                 </div>
-                 <img
-                   src={p.imgUrl}
-                   alt={p.name}
-                 />
-                 <header>
-                   <div className='prod-info' >
-                     <strong> {p.name} </strong>
-                     <span> {p.description} </span>
-                     <p> {p.detail} </p>
-                   </div>
-                   <div className='prod-add' >
-                     {(p.amount > 0 ? <span id='qtd-none' /> : <span id='qtd'>FORA DO ESTOQUE</span>)}
-                     <span id='price' > {`R$ ${p.price}`} </span>
-                   </div>
-                 </header>
-               </li>
-             ))}
+             {prod.map(p => <Admin key={p._id} p={p} delItem={deleteItemProd} /> ) }
            </ul>
          </main>
         )} />

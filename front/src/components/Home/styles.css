@@ -117,3 +117,24 @@ li div.prod-add span#price {
         grid-column-end: 4;
     }
 }
+
+@media (max-width: 521px) {
+    li div.prod-info strong {
+        grid-row-start: 1;
+        grid-column-start: 1;
+        grid-row-end: 2;
+        grid-column-end: 3;
+    }
+
+    li div.prod-info span {
+        grid-row-start: 2;
+        grid-column-end: 3
+    }
+
+    li div.prod-info p {
+        grid-row-start: 1;
+        grid-column-start: 3;
+        grid-row-end: 3;
+        grid-column-end: 4;
+    }
+}

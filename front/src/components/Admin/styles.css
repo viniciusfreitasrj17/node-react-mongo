@@ -34,13 +34,14 @@ li {
     
 }
 
-li div#fecharProduto {
-    /* text-align: right; */
+li button#fecharProduto {
     border: #4c4c4c 1px solid;
     padding: 1px;
     background-color: #c31010;
     display: inline-block;
     position: absolute;
+    padding: 2px 7px;
+    color: #fff;
 }
 
 li img {
