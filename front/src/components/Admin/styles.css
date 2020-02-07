@@ -13,25 +13,26 @@ main#admin div#titlePainel {
     background: #FFF;
     box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.7);
     text-align: center;
+    display: grid;
+    grid-template-columns: 16fr 7fr 1fr;
 }
 
 main#admin div#titlePainel p {
     color: #1e78a5;
     font-size: 40px;
-    display: inline;
+    text-align: right;
+    margin: auto 0;
 }
 
-main#admin div#titlePainel button#registerLink {
-    display: inline;
-    width: 5%;
+main#admin div#titlePainel #registerLink {
+    text-decoration: none;
+    width: 60px;
     border: 0;
     background-color: cadetblue;
     border-radius: 2px;
-    padding: 15px 2px;
-    font-size: 16px;
+    font-size: 40px;
     color: #fff;
     cursor: pointer;
-    left: 0px;
 }
 
 main ul {
@@ -140,6 +141,18 @@ li div.prod-add span#price {
     }
 }
 
+@media (max-width: 730px) {
+    main#admin div#titlePainel p {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 671px) {
+    main#admin div#titlePainel p {
+        font-size: 30px;
+    }
+}
+
 @media (max-width: 612px) {
     li div.prod-info span {
         grid-column-start: 1;
@@ -152,5 +165,9 @@ li div.prod-add span#price {
         grid-column-start: 3;
         grid-row-end: 3;
         grid-column-end: 4;
+    }
+
+    main#admin div#titlePainel p {
+        font-size: 23px;
     }
 }

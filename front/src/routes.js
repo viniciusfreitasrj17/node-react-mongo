@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import api from './service/api'
 
 import Register from './components/Register'
@@ -49,7 +49,8 @@ const Routes = () => {
           <main id='admin' >
            <div id='titlePainel'>
              <p>Painel Administrativo</p>
-             <button id='registerLink' >+</button>
+             <div id='ghost'></div>
+             <Link id='registerLink' to='/register' >+</Link>
            </div>
            <ul>
              {prod.map(p => <Admin key={p._id} p={p} delItem={deleteItemProd} /> ) }
