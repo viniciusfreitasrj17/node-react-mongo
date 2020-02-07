@@ -48,7 +48,8 @@ const Routes = () => {
         <Route exact path='/admin' component={() => (
           <main id='admin' >
            <div id='titlePainel'>
-             Painel Administrativo
+             <p>Painel Administrativo</p>
+             <button id='registerLink' >+</button>
            </div>
            <ul>
              {prod.map(p => <Admin key={p._id} p={p} delItem={deleteItemProd} /> ) }

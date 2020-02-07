@@ -8,13 +8,30 @@ main#admin {
 }
 
 main#admin div#titlePainel {
-    color: #1e78a5;
-    font-size: 40px;
     padding: 5px;
     margin: 20px 0;
     background: #FFF;
     box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.7);
     text-align: center;
+}
+
+main#admin div#titlePainel p {
+    color: #1e78a5;
+    font-size: 40px;
+    display: inline;
+}
+
+main#admin div#titlePainel button#registerLink {
+    display: inline;
+    width: 5%;
+    border: 0;
+    background-color: cadetblue;
+    border-radius: 2px;
+    padding: 15px 2px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    left: 0px;
 }
 
 main ul {
@@ -132,7 +149,7 @@ li div.prod-add span#price {
 
     li div.prod-info p {
         grid-row-start: 1;
-        grid-column-start: 2;
+        grid-column-start: 3;
         grid-row-end: 3;
         grid-column-end: 4;
     }

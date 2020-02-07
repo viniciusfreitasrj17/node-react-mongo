@@ -1,3 +1,3 @@
 # Run:
-    chmod +x start
+    sudo chmod +x start
     ./start
