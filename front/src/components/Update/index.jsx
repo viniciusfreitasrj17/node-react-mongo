@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import './styles.css'
 
-function Register({ onSubmit }) {
+function Update(props) {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [detail, setDetail] = useState('')
@@ -11,37 +11,40 @@ function Register({ onSubmit }) {
     const [price, setPrice] = useState(0)
     const [amount, setAmount] = useState(0)
 
-    async function handleSubmit(e) {
+    function handleSubmit(e) {
         e.preventDefault()
 
-        await onSubmit({
-            name,
-            description,
-            detail,
-            imgUrl,
-            price,
-            amount
-        })
+        // await onSubmit({
+        //     name,
+        //     description,
+        //     detail,
+        //     imgUrl,
+        //     price,
+        //     amount
+        // })
 
-        setName('')
-        setDescription('')
-        setDetail('')
-        setImgUrl('')
-        setPrice(0)
-        setAmount(0)
+        // setName('')
+        // setDescription('')
+        // setDetail('')
+        // setImgUrl('')
+        // setPrice(0)
+        // setAmount(0)
+
+        console.log(props)
     }
 
+    console.log(props.location)
+
     return (
-        <main id='register' >
+        <main id='update' >
             <Link id='adminLink' to='/admin'>Voltar</Link>
-            <strong>Cadastro de Produto</strong>
+            <strong>Atualizar Produto</strong>
             <form onSubmit={handleSubmit} >
                 <div className='input-block' >
                     <label htmlFor='name' >Nome do Produto</label>
                     <input
                         name='name'
                         id='name'
-                        required
                         value={name}
                         onChange={e => setName(e.target.value)}
                     />
@@ -52,7 +55,6 @@ function Register({ onSubmit }) {
                     <input
                         name='description'
                         id='description'
-                        required
                         value={description}
                         onChange={e => setDescription(e.target.value)}
                     />
@@ -63,7 +65,6 @@ function Register({ onSubmit }) {
                     <textarea
                         name='detail'
                         id='detail'
-                        required
                         rows='2'
                         cols='33'
                         value={detail}
@@ -76,7 +77,6 @@ function Register({ onSubmit }) {
                     <input
                         name='imgUrl'
                         id='imgUrl'
-                        required
                         value={imgUrl}
                         onChange={e => setImgUrl(e.target.value)}
                     />
@@ -87,7 +87,6 @@ function Register({ onSubmit }) {
                     <input
                         name='price'
                         id='price'
-                        required
                         type='number'
                         value={price}
                         onChange={e => setPrice(e.target.value)}
@@ -105,10 +104,10 @@ function Register({ onSubmit }) {
                     />
                 </div>
 
-                <button type='submit' >Cadastrar</button>
+                <button type='submit' >Atualizar</button>
             </form>
         </main>
     )
 }
 
-export default Register
+export default Update

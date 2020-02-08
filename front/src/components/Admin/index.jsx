@@ -1,9 +1,10 @@
 import React from 'react'
 
 import './styles.css'
+import { Link } from 'react-router-dom'
 
 function Admin(props) {
-    const { p, delItem } = props
+    const { p, delItem, upItem } = props
 
     async function deleteItem(e) {
         e.preventDefault()
@@ -17,6 +18,9 @@ function Admin(props) {
                 <button id='fecharProduto' type='submit'>
                     X
                 </button>
+            </form>
+            <form>
+                <Link id='updateProduto' to={{ pathname: '/update', params: { fromNotifications:true } }} > Editar </Link>
             </form>
             <img
                 src={p.imgUrl}
