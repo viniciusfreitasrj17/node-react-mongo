@@ -67,7 +67,7 @@ li button#fecharProduto {
     color: #fff;
 }
 
-li #updateProduto {
+li .updateProduto {
     text-decoration: none;
     width: 60px;
     border: 0;
@@ -81,7 +81,7 @@ li #updateProduto {
     margin-left: 30px;
 }
 
-li #updateProduto:hover {
+li .updateProduto:hover {
     background-color: #277779;
 }
 
