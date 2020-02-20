@@ -5,7 +5,6 @@ import api from './service/api'
 import Register from './components/Register'
 import Home from './components/Home'
 import Admin from './components/Admin'
-import Update from './components/Update'
 
 const Routes = () => {
   const [prod, setProd] = useState([])
@@ -66,7 +65,6 @@ const Routes = () => {
          </main>
         )} />
         <Route exact path='/register' component={() => <Register onSubmit={handleSubmit} /> } />
-        <Route exact path='/update' component={() => <Update /> } />
       </Switch>
     </BrowserRouter>
   )

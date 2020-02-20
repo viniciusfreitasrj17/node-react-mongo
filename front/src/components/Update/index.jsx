@@ -1,45 +1,39 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 
+import api from '../../service/api'
 import './styles.css'
 
-function Update(props) {
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
-    const [detail, setDetail] = useState('')
-    const [imgUrl, setImgUrl] = useState('')
-    const [price, setPrice] = useState(0)
-    const [amount, setAmount] = useState(0)
+function Update({ p, close }) {
+    const [name, setName] = useState([p.name])
+    const [description, setDescription] = useState([p.description])
+    const [detail, setDetail] = useState([p.detail])
+    const [imgUrl, setImgUrl] = useState([p.imgUrl])
+    const [price, setPrice] = useState([p.price])
+    const [amount, setAmount] = useState([p.amount])
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault()
 
-        // await onSubmit({
-        //     name,
-        //     description,
-        //     detail,
-        //     imgUrl,
-        //     price,
-        //     amount
-        // })
+        const { data } = await api.put(`/prod/${p._id}`, {
+            name,
+            description,
+            detail,
+            imgUrl,
+            price,
+            amount
+        }, { headers: {'Content-Type': 'application/json'} })
 
-        // setName('')
-        // setDescription('')
-        // setDetail('')
-        // setImgUrl('')
-        // setPrice(0)
-        // setAmount(0)
+        console.log(data)
 
-        console.log(props)
+        close()
     }
-
-    console.log(props.location)
 
     return (
         <main id='update' >
-            <Link id='adminLink' to='/admin'>Voltar</Link>
+            <button className="adminLink" onClick={close} > &times; </button>
             <strong>Atualizar Produto</strong>
-            <form onSubmit={handleSubmit} >
+            <div className='divForm' >
+                {/* <input type='hidden' name='_id' value={p._id} /> */}
                 <div className='input-block' >
                     <label htmlFor='name' >Nome do Produto</label>
                     <input
@@ -104,8 +98,8 @@ function Update(props) {
                     />
                 </div>
 
-                <button type='submit' >Atualizar</button>
-            </form>
+                <button onClick={handleSubmit} >Atualizar</button>
+            </div>
         </main>
     )
 }

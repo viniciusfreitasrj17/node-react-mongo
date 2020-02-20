@@ -57,7 +57,7 @@ li {
     
 }
 
-li button#fecharProduto {
+li button.fecharProduto {
     border: #4c4c4c 1px solid;
     padding: 1px;
     background-color: #c31010;
@@ -73,7 +73,7 @@ li .updateProduto {
     border: 0;
     background-color: cadetblue;
     border-radius: 2px;
-    font-size: 30px;
+    font-size: 17px;
     color: #fff;
     cursor: pointer;
     transition: background 1s;
@@ -83,6 +83,11 @@ li .updateProduto {
 
 li .updateProduto:hover {
     background-color: #277779;
+}
+
+div .popup-content {
+    border: 0;
+    background-color: rgba(0,0,0,0);
 }
 
 li img {
