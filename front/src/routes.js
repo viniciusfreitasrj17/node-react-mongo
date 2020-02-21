@@ -68,6 +68,7 @@ const Routes = () => {
          </main>
         )} />
         <Route exact path='/register' component={() => <Register onSubmit={handleSubmit} /> } />
+        <Route component={() => <h1>Not Found</h1>} />
       </Switch>
     </BrowserRouter>
   )
