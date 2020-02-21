@@ -14,16 +14,16 @@ function Update({ p, close }) {
     async function handleSubmit(e) {
         e.preventDefault()
 
-        const { data } = await api.put(`/prod/${p._id}`, {
+        await api.put(`/prod/${p._id}`, {
             name,
             description,
             detail,
             imgUrl,
             price,
             amount
-        }, { headers: {'Content-Type': 'application/json'} })
-
-        console.log(data)
+        })
+            .then(d => console.log(d))
+            .catch(e => console.log(e))
 
         close()
     }

@@ -30,8 +30,9 @@ const Routes = () => {
   async function updateSubmit(i, d) {
     const { data } = await api.put(`/prod/${i}`, d)
 
-    setProd([...prod, data])
-    setLoad(load + 1)
+    if(data.nModified) {
+      setLoad(load + 1)
+    }
   }
 
   async function deleteItemProd(d) {
