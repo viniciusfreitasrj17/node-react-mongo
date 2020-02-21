@@ -8,7 +8,7 @@ import Admin from './components/Admin'
 
 const Routes = () => {
   const [prod, setProd] = useState([])
-  const [load, setLoad] = useState(0)
+  // const [load, setLoad] = useState(0)
   
   useEffect(() => {
     async function loadProd() {
@@ -18,29 +18,31 @@ const Routes = () => {
     }
 
     loadProd()
-  }, [load])
+  }, [])
 
   async function handleSubmit(d) {
     const { data } = await api.post('/prod', d)
     
     setProd([...prod, data])
-    setLoad(load + 1)
+    // setLoad(load + 1)
   }
 
   async function updateSubmit(i, d) {
-    const { data } = await api.put(`/prod/${i}`, d)
+    await api.put(`/prod/${i}`, d)
 
-    if(data.nModified) {
-      setLoad(load + 1)
-    }
+    // if(data.nModified) {
+    //   // setLoad(load + 1)
+    //   window.location.reload()
+    // }
   }
 
   async function deleteItemProd(d) {
-    const { data } = await api.delete(`/prod/${d}`)
+    await api.delete(`/prod/${d}`)
 
-    if(data.deletedCount) {
-      setLoad(load + 1)
-    }
+    // if(data.deletedCount) {
+    //   // setLoad(load + 1)
+    //   window.location.reload()
+    // }
   }
 
   return (

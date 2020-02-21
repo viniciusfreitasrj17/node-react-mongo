@@ -1,29 +1,30 @@
 import React, { useState } from 'react'
 
-import api from '../../service/api'
 import './styles.css'
 
-function Update({ p, close }) {
-    const [name, setName] = useState([p.name])
-    const [description, setDescription] = useState([p.description])
-    const [detail, setDetail] = useState([p.detail])
-    const [imgUrl, setImgUrl] = useState([p.imgUrl])
-    const [price, setPrice] = useState([p.price])
-    const [amount, setAmount] = useState([p.amount])
+function Update({ p, close, upItem }) {
+    const [name, setName] = useState(p.name)
+    const [description, setDescription] = useState(p.description)
+    const [detail, setDetail] = useState(p.detail)
+    const [imgUrl, setImgUrl] = useState(p.imgUrl)
+    const [price, setPrice] = useState(p.price)
+    const [amount, setAmount] = useState(p.amount)
 
     async function handleSubmit(e) {
         e.preventDefault()
 
-        await api.put(`/prod/${p._id}`, {
+        await upItem(p._id, {
             name,
             description,
             detail,
             imgUrl,
             price,
             amount
+        }).then(res => {
+            console.log('sucesso', res);
+        }).catch(err => {
+            console.log('error', err);
         })
-            .then(d => console.log(d))
-            .catch(e => console.log(e))
 
         close()
     }

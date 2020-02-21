@@ -33,16 +33,21 @@ module.exports = {
     },
 
     async update(req, res) {
-        let prod = req.body
+        const prod = req.body
         const _id = req.params.id
-
-        if(prod) {
-            prod = await Prod.updateOne({ _id }, {
-                $set: prod
-            })
+        let data              // Precisava desta variárel pois o tratamento do erro não ocorria com o prod estando no await
+        
+        try {
+            if(prod) {
+                data = await Prod.updateOne({ _id }, {
+                    $set: prod
+                })
+            }
+        } catch(e) {
+            res.status(400).json({ error: e.message })
         }
-
-        res.json(prod)
+        
+        return res.json(data)
     },
 
     async destroy(req, res) {
