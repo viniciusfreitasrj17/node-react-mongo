@@ -4,18 +4,26 @@ import './styles.css'
 import Popup from 'reactjs-popup'
 import Update from '../Update'
 
-function Admin({ p, delItem, upItem }) {
+function Admin({ p, delItem, upItem, index }) {
     async function deleteItem(e) {
         e.preventDefault()
 
-        await delItem(p._id)
+        await delItem(p._id, index)
     }
 
     return (
         <li key={p._id} >
-            <button className='fecharProduto' onClick={deleteItem}> X </button>
-            <Popup trigger={<button className="updateProduto"> Editar </button>} modal>
-              {close => <Update p={p} close={close} upItem={upItem} /> }
+            <Popup trigger={<button className='fecharProduto' > X </button>} modal>
+                {close => (
+                    <div>
+                        <h1>Title</h1>
+                        <button className="adminLink" onClick={deleteItem} > Delete </button>
+                        <button className="adminLink" onClick={close} > &times; </button>
+                    </div>
+                )}
+            </Popup>
+            <Popup trigger={<button className='updateProduto'> Editar </button>} modal>
+              {close => <Update p={p} close={close} upItem={upItem} indexUp={index} /> }
             </Popup>
             <img
                 src={p.imgUrl}

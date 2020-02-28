@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import './styles.css'
 
-function Update({ p, close, upItem }) {
+function Update({ p, close, upItem, indexUp }) {
     const [name, setName] = useState(p.name)
     const [description, setDescription] = useState(p.description)
     const [detail, setDetail] = useState(p.detail)
@@ -20,7 +20,7 @@ function Update({ p, close, upItem }) {
             imgUrl,
             price,
             amount
-        }).then(res => {
+        }, indexUp).then(res => {
             console.log('sucesso', res);
         }).catch(err => {
             console.log('error', err);

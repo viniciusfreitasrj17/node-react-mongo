@@ -8,7 +8,7 @@ import Admin from './components/Admin'
 
 const Routes = () => {
   const [prod, setProd] = useState([])
-  // const [load, setLoad] = useState(0)
+  const [load, setLoad] = useState(0)
   
   useEffect(() => {
     async function loadProd() {
@@ -18,7 +18,7 @@ const Routes = () => {
     }
 
     loadProd()
-  }, [])
+  }, [load])
 
   async function handleSubmit(d) {
     const { data } = await api.post('/prod', d)
@@ -27,8 +27,11 @@ const Routes = () => {
     // setLoad(load + 1)
   }
 
-  async function updateSubmit(i, d) {
+  async function updateSubmit(i, d, index) {
     await api.put(`/prod/${i}`, d)
+
+    console.log(prod[index])
+    setLoad(load + 1)
 
     // if(data.nModified) {
     //   // setLoad(load + 1)
@@ -36,13 +39,11 @@ const Routes = () => {
     // }
   }
 
-  async function deleteItemProd(d) {
+  async function deleteItemProd(d, index) {
     await api.delete(`/prod/${d}`)
 
-    // if(data.deletedCount) {
-    //   // setLoad(load + 1)
-    //   window.location.reload()
-    // }
+    setProd(prod.filter(p => !p[index]))
+    setLoad(load + 1)
   }
 
   return (
@@ -63,7 +64,7 @@ const Routes = () => {
              <Link id='registerLink' to='/register' >+</Link>
            </div>
            <ul>
-             {prod.map(p => <Admin key={p._id} p={p} delItem={deleteItemProd} upItem={updateSubmit} /> ) }
+             {prod.map(p => <Admin key={p._id} p={p} delItem={deleteItemProd} upItem={updateSubmit} index={prod.indexOf(p)} /> ) }
            </ul>
          </main>
         )} />

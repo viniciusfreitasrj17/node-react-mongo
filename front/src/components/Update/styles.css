@@ -16,7 +16,7 @@ main#update .adminLink {
     font-size: 23px;
     color: #fff;
     cursor: pointer;
-    padding: 5px 5px;
+    padding: 0px 5px;
     transition: background 1s;
     position: absolute;
 }
