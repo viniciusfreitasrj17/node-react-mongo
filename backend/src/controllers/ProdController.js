@@ -6,21 +6,33 @@ const Prod = require('../model/Prod')
 
 module.exports = {
     async index(req, res) {
-        const prod = await Prod.find()
+        let prod
+        try {
+            prod = await Prod.find()
+        } catch(e) {
+            res.status(400).json({ error: e.message })
+        }
 
         return res.json(prod)
     },
 
     async show(req, res) {
         const _id = req.params.id
-        const prod = await Prod.findOne({ _id })
+        let prod
+        try {
+            prod = await Prod.findOne({ _id })
+        } catch(e) {
+            res.status(400).json({ error: e.message })
+        }
 
         return res.json(prod)
     },
 
     async store(req, res) {
         const { name, description, detail, imgUrl, price, amount } = req.body
-        const prod = await Prod.create({
+        let prod
+        try {
+            prod = await Prod.create({
                 name,
                 description,
                 detail,
@@ -28,6 +40,9 @@ module.exports = {
                 price,
                 amount
             })
+        } catch(e) {
+            res.status(400).json({ error: e.message })
+        }
             
         return res.json(prod)
     },
@@ -52,7 +67,12 @@ module.exports = {
 
     async destroy(req, res) {
         const _id = req.params.id
-        const prod = await Prod.deleteOne({ _id })
+        let prod
+        try {
+            prod = await Prod.deleteOne({ _id })
+        } catch(e) {
+            res.status(400).json({ error: e.message })
+        }
 
         res.json(prod)
     }

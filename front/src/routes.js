@@ -27,16 +27,13 @@ const Routes = () => {
     // setLoad(load + 1)
   }
 
-  async function updateSubmit(i, d, index) {
-    await api.put(`/prod/${i}`, d)
+  async function updateSubmit(i, d) {
+    const { data } =  await api.put(`/prod/${i}`, d)
 
-    console.log(prod[index])
-    setLoad(load + 1)
-
-    // if(data.nModified) {
-    //   // setLoad(load + 1)
-    //   window.location.reload()
-    // }
+    if(data.nModified) {
+      // setLoad(load + 1)
+      window.location.reload()
+    }
   }
 
   async function deleteItemProd(d, index) {
@@ -64,7 +61,7 @@ const Routes = () => {
              <Link id='registerLink' to='/register' >+</Link>
            </div>
            <ul>
-             {prod.map(p => <Admin key={p._id} p={p} delItem={deleteItemProd} upItem={updateSubmit} index={prod.indexOf(p)} /> ) }
+             {prod.map(p => <Admin key={p._id} p={p} delItem={deleteItemProd} upItem={updateSubmit} /> ) }
            </ul>
          </main>
         )} />

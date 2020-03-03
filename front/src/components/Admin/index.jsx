@@ -1,14 +1,19 @@
 import React from 'react'
+import Popup from 'reactjs-popup'
 
 import './styles.css'
-import Popup from 'reactjs-popup'
 import Update from '../Update'
+// import Sucess from '../utils/Sucess'
 
-function Admin({ p, delItem, upItem, index }) {
+function Admin({ p, delItem, upItem  }) {
     async function deleteItem(e) {
         e.preventDefault()
 
-        await delItem(p._id, index)
+        await delItem(p._id).then(res => {
+            console.log('sucesso', res);
+        }).catch(err => {
+            console.log('error', err);
+        })
     }
 
     return (
@@ -23,7 +28,7 @@ function Admin({ p, delItem, upItem, index }) {
                 )}
             </Popup>
             <Popup trigger={<button className='updateProduto'> Editar </button>} modal>
-              {close => <Update p={p} close={close} upItem={upItem} indexUp={index} /> }
+              {close => <Update p={p} close={close} upItem={upItem} /> }
             </Popup>
             <img
                 src={p.imgUrl}

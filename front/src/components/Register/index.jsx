@@ -21,6 +21,10 @@ function Register({ onSubmit }) {
             imgUrl,
             price,
             amount
+        }).then(res => {
+            console.log('sucesso', res);
+        }).catch(err => {
+            console.log('error', err);
         })
 
         setName('')
@@ -35,7 +39,7 @@ function Register({ onSubmit }) {
         <main id='register' >
             <Link id='adminLink' to='/admin'>Voltar</Link>
             <strong>Cadastro de Produto</strong>
-            <form onSubmit={handleSubmit} >
+            <div className='divFormRegister' >
                 <div className='input-block' >
                     <label htmlFor='name' >Nome do Produto</label>
                     <input
@@ -105,8 +109,8 @@ function Register({ onSubmit }) {
                     />
                 </div>
 
-                <button type='submit' >Cadastrar</button>
-            </form>
+                <button onClick={handleSubmit} >Cadastrar</button>
+            </div>
         </main>
     )
 }

@@ -32,22 +32,22 @@ main#update strong {
     color: #333;
 }
 
-main#update div.divForm {
+main#update div.divFormUpdate {
     margin-top: 30px;
 }
 
-main#update div.divForm .input-block {
+main#update div.divFormUpdate .input-block {
     margin-top: 20px;
 }
 
-main#update div.divForm .input-block label {
+main#update div.divFormUpdate .input-block label {
     color: #565656;
     font-size: 20px;
     font-weight: bold;
     display: block;
 }
 
-main#update div.divForm .input-block input {
+main#update div.divFormUpdate .input-block input {
     width: 100%;
     height: 32px;
     font-size: 18px;
@@ -56,7 +56,7 @@ main#update div.divForm .input-block input {
     border-bottom: 1px solid #866868;
 }
 
-main#update div.divForm .input-block textarea {
+main#update div.divFormUpdate .input-block textarea {
     font-size: 15px;
     padding: 10px;
     line-height: 1.5;
@@ -66,7 +66,7 @@ main#update div.divForm .input-block textarea {
     width: 100%;
 }
 
-main#update div.divForm button {
+main#update div.divFormUpdate button {
     width: 100%;
     border: 0;
     margin-top: 30px;
@@ -79,6 +79,6 @@ main#update div.divForm button {
     transition: background 1s;
 }
 
-main#update div.divForm button:hover {
+main#update div.divFormUpdate button:hover {
     background-color: #0b666f;
 }

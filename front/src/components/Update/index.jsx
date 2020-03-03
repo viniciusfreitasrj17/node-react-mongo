@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
+import Popup from 'reactjs-popup'
 
 import './styles.css'
 
-function Update({ p, close, upItem, indexUp }) {
+import Sucess from '../utils/Sucess'
+
+function Update({ p, close, upItem }) {
     const [name, setName] = useState(p.name)
     const [description, setDescription] = useState(p.description)
     const [detail, setDetail] = useState(p.detail)
@@ -20,7 +23,7 @@ function Update({ p, close, upItem, indexUp }) {
             imgUrl,
             price,
             amount
-        }, indexUp).then(res => {
+        }).then(res => {
             console.log('sucesso', res);
         }).catch(err => {
             console.log('error', err);
@@ -33,8 +36,7 @@ function Update({ p, close, upItem, indexUp }) {
         <main id='update' >
             <button className="adminLink" onClick={close} > &times; </button>
             <strong>Atualizar Produto</strong>
-            <div className='divForm' >
-                {/* <input type='hidden' name='_id' value={p._id} /> */}
+            <div className='divFormUpdate' >
                 <div className='input-block' >
                     <label htmlFor='name' >Nome do Produto</label>
                     <input
@@ -99,7 +101,10 @@ function Update({ p, close, upItem, indexUp }) {
                     />
                 </div>
 
-                <button onClick={handleSubmit} >Atualizar</button>
+                {/* <button onClick={handleSubmit} >Atualizar</button> */}
+                <Popup trigger={<button onClick={handleSubmit} >Atualizar</button>} modal >
+                    {close => <Sucess close={close} info={'atualizados'} /> }
+                </Popup>
             </div>
         </main>
     )
