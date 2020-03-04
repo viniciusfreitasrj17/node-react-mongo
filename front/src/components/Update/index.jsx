@@ -4,6 +4,7 @@ import Popup from 'reactjs-popup'
 import './styles.css'
 
 import Sucess from '../utils/Sucess'
+import Confirmation from '../utils/Confirmation'
 
 function Update({ p, close, upItem }) {
     const [name, setName] = useState(p.name)
@@ -29,7 +30,18 @@ function Update({ p, close, upItem }) {
             console.log('error', err);
         })
 
-        close()
+        
+    }
+
+    function aaa() {
+        let a = 2
+        console.log(a)
+
+        return (
+          <Popup modal>
+              {close => <Sucess close={close} info={'atualizados'} /> }
+          </Popup>
+        )
     }
 
     return (
@@ -102,8 +114,8 @@ function Update({ p, close, upItem }) {
                 </div>
 
                 {/* <button onClick={handleSubmit} >Atualizar</button> */}
-                <Popup trigger={<button onClick={handleSubmit} >Atualizar</button>} modal >
-                    {close => <Sucess close={close} info={'atualizados'} /> }
+                <Popup trigger={<button >Atualizar</button>} modal >
+                    {close => <Confirmation funcs={aaa} close={close} info={'atualizar'} /> }
                 </Popup>
             </div>
         </main>
