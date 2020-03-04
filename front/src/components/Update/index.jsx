@@ -3,7 +3,6 @@ import Popup from 'reactjs-popup'
 
 import './styles.css'
 
-import Sucess from '../utils/Sucess'
 import Confirmation from '../utils/Confirmation'
 
 function Update({ p, close, upItem }) {
@@ -34,14 +33,7 @@ function Update({ p, close, upItem }) {
     }
 
     function aaa() {
-        let a = 2
-        console.log(a)
-
-        return (
-          <Popup modal>
-              {close => <Sucess close={close} info={'atualizados'} /> }
-          </Popup>
-        )
+        console.log('AQUIIIIIIIIIII')
     }
 
     return (
@@ -115,7 +107,7 @@ function Update({ p, close, upItem }) {
 
                 {/* <button onClick={handleSubmit} >Atualizar</button> */}
                 <Popup trigger={<button >Atualizar</button>} modal >
-                    {close => <Confirmation funcs={aaa} close={close} info={'atualizar'} /> }
+                    {close => <Confirmation funcs={() => console.log('aaaaaaaaaaaaaa')} close={close} infoC={'atualizar'} infoS={'atualizados'} /> }
                 </Popup>
             </div>
         </main>
