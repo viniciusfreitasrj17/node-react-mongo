@@ -13,8 +13,8 @@ function Update({ p, close, upItem }) {
     const [price, setPrice] = useState(p.price)
     const [amount, setAmount] = useState(p.amount)
 
-    async function handleSubmit(e) {
-        e.preventDefault()
+    async function handleSubmit() {
+        // e.preventDefault()
 
         await upItem(p._id, {
             name,
@@ -30,10 +30,6 @@ function Update({ p, close, upItem }) {
         })
 
         
-    }
-
-    function aaa() {
-        console.log('AQUIIIIIIIIIII')
     }
 
     return (
@@ -105,9 +101,9 @@ function Update({ p, close, upItem }) {
                     />
                 </div>
 
-                {/* <button onClick={handleSubmit} >Atualizar</button> */}
+                {/* <button onClick={aaa} >Atualizar</button> */}
                 <Popup trigger={<button >Atualizar</button>} modal >
-                    {close => <Confirmation funcs={() => console.log('aaaaaaaaaaaaaa')} close={close} infoC={'atualizar'} infoS={'atualizados'} /> }
+                    {close => <Confirmation funcs={handleSubmit} close={close} infoC={'atualizar'} infoS={'atualizados'} /> }
                 </Popup>
             </div>
         </main>
