@@ -3,11 +3,11 @@ import Popup from 'reactjs-popup'
 
 import './styles.css'
 import Update from '../Update'
-// import Sucess from '../utils/Sucess'
+import Confirmation from '../utils/Confirmation'
 
-function Admin({ p, delItem, upItem  }) {
-    async function deleteItem(e) {
-        e.preventDefault()
+function Admin({ p, delItem, upItem }) {
+    async function deleteItem() {
+        // e.preventDefault()
 
         await delItem(p._id).then(res => {
             console.log('sucesso', res);
@@ -19,12 +19,15 @@ function Admin({ p, delItem, upItem  }) {
     return (
         <li key={p._id} >
             <Popup trigger={<button className='fecharProduto' > X </button>} modal>
-                {close => (
-                    <div>
-                        <h1>Title</h1>
-                        <button className="adminLink" onClick={deleteItem} > Delete </button>
-                        <button className="adminLink" onClick={close} > &times; </button>
-                    </div>
+                {closeX => (
+                    // <div>
+                    //     <h1>Title</h1>
+                    //     <Popup trigger={<button className="adminLink" > Delete </button>} modal>
+                    //         {close => <Sucess close={close} info={'deletados'} funcs={deleteItem} closed={() => {closeX()}} /> }
+                    //      </Popup>
+                    //     <button className="adminLink" onClick={closeX} > &times; </button>
+                    // </div>
+                    <Confirmation funcs={deleteItem} close={closeX} infoC={'deletar'} infoS={'deletados'} />
                 )}
             </Popup>
             <Popup trigger={<button className='updateProduto'> Editar </button>} modal>
