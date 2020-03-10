@@ -1,0 +1,44 @@
+main.popupInformation {
+  display: grid;
+  gap: 20px;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+main.popupInformation h1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  font-size: 30px;
+  text-align: center;
+}
+
+main.popupInformation button {
+    width: 100%;
+    border: 0;
+    background-color: #1ccadc;
+    border-radius: 2px;
+    padding: 15px 20px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background 1s;
+}
+
+main.popupInformation button:hover {
+    background-color: #0b666f;
+}
+
+main.popupInformation button.popupYes {
+  grid-column-start: 1;
+}
+
+main.popupInformation button.popupNo {
+  grid-column-start: 2;
+}
+
+main.popupInformation button.popupOk {
+  grid-column-end: 3;
+  grid-column-start: 1;
+}

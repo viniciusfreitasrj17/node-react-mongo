@@ -66,7 +66,7 @@ main#update div.divFormUpdate .input-block textarea {
     width: 100%;
 }
 
-main#update div.divFormUpdate button {
+main#update div.divFormUpdate button.buttonUpdate {
     width: 100%;
     border: 0;
     margin-top: 30px;
@@ -79,6 +79,6 @@ main#update div.divFormUpdate button {
     transition: background 1s;
 }
 
-main#update div.divFormUpdate button:hover {
+main#update div.divFormUpdate button.buttonUpdate:hover {
     background-color: #0b666f;
 }

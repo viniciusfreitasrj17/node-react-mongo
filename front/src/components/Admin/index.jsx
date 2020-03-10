@@ -19,16 +19,7 @@ function Admin({ p, delItem, upItem }) {
     return (
         <li key={p._id} >
             <Popup trigger={<button className='fecharProduto' > X </button>} modal>
-                {closeX => (
-                    // <div>
-                    //     <h1>Title</h1>
-                    //     <Popup trigger={<button className="adminLink" > Delete </button>} modal>
-                    //         {close => <Sucess close={close} info={'deletados'} funcs={deleteItem} closed={() => {closeX()}} /> }
-                    //      </Popup>
-                    //     <button className="adminLink" onClick={closeX} > &times; </button>
-                    // </div>
-                    <Confirmation funcs={deleteItem} close={closeX} infoC={'deletar'} infoS={'deletados'} />
-                )}
+                {close => <Confirmation funcs={deleteItem} close={close} infoC={'deletar'} infoS={'deletados'} /> }
             </Popup>
             <Popup trigger={<button className='updateProduto'> Editar </button>} modal>
               {close => <Update p={p} close={close} upItem={upItem} /> }

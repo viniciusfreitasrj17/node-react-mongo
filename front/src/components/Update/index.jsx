@@ -102,7 +102,7 @@ function Update({ p, close, upItem }) {
                 </div>
 
                 {/* <button onClick={aaa} >Atualizar</button> */}
-                <Popup trigger={<button >Atualizar</button>} modal >
+                <Popup trigger={<button className='buttonUpdate' >Atualizar</button>} modal >
                     {close => <Confirmation funcs={handleSubmit} close={close} infoC={'atualizar'} infoS={'atualizados'} /> }
                 </Popup>
             </div>

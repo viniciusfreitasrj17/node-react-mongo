@@ -109,7 +109,7 @@ function Register({ onSubmit }) {
                     />
                 </div>
 
-                <button onClick={handleSubmit} >Cadastrar</button>
+                <button className='buttonRegister' onClick={handleSubmit} >Cadastrar</button>
             </div>
         </main>
     )
