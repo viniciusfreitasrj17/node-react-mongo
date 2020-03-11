@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
+import Popup from 'reactjs-popup'
 import { Link } from 'react-router-dom'
+
+import Sucess from '../utils/Sucess'
 
 import './styles.css'
 
@@ -11,8 +14,8 @@ function Register({ onSubmit }) {
     const [price, setPrice] = useState(0)
     const [amount, setAmount] = useState(0)
 
-    async function handleSubmit(e) {
-        e.preventDefault()
+    async function handleSubmit() {
+        // e.preventDefault()
 
         await onSubmit({
             name,
@@ -109,7 +112,10 @@ function Register({ onSubmit }) {
                     />
                 </div>
 
-                <button className='buttonRegister' onClick={handleSubmit} >Cadastrar</button>
+                {/* <button className='buttonRegister' onClick={handleSubmit} >Cadastrar</button> */}
+                <Popup trigger={ <button className='buttonRegister' >Cadastrar</button> } modal >
+                    {close => <Sucess close={close} info={'adicionados'} funcs={handleSubmit} /> }
+                </Popup>
             </div>
         </main>
     )

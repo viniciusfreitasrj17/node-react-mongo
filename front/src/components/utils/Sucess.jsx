@@ -9,7 +9,7 @@ function Sucess({ close, info, funcs, closed }) {
             <h1> {`Novos dados ${info} com sucesso`} </h1>
             <button className='popupOk' onClick={() => {
                 close()
-                setTimeout(() => closed(), 75)
+                setTimeout(() => (closed) ? closed() : false, 75)
                 setTimeout(() => funcs(), 150)
             }} > OK </button>
         </main>

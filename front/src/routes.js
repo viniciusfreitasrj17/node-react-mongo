@@ -23,6 +23,7 @@ const Routes = () => {
   async function handleSubmit(d) {
     const { data } = await api.post('/prod', d)
     
+    console.log([prod, data])
     setProd([...prod, data])
     // setLoad(load + 1)
   }
