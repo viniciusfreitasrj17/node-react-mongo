@@ -9,7 +9,8 @@ function Admin({ p, delItem, upItem }) {
     async function deleteItem() {
         // e.preventDefault()
 
-        await delItem(p._id).then(res => {
+        await delItem(p._id)
+          .then(res => {
             console.log('sucesso', res);
         }).catch(err => {
             console.log('error', err);
