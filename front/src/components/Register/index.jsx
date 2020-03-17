@@ -14,8 +14,10 @@ function Register({ onSubmit }) {
     const [price, setPrice] = useState(0)
     const [amount, setAmount] = useState(0)
 
-    async function handleSubmit() {
-        // e.preventDefault()
+    const [s, setS] = useState('')
+
+    async function handleSubmit(e) {
+        e.preventDefault()
 
         await onSubmit({
             name,
@@ -37,6 +39,7 @@ function Register({ onSubmit }) {
         setPrice(0)
         setAmount(0)
 
+        setS(<Popup modal > {close => <Sucess close={close} info={'adicionados'} /> } </Popup>)
     }
 
     return (
@@ -113,10 +116,12 @@ function Register({ onSubmit }) {
                     />
                 </div>
 
-                {/* <button className='buttonRegister' onClick={handleSubmit} >Cadastrar</button> */}
-                <Popup trigger={ <button className='buttonRegister' >Cadastrar</button> } modal >
+                <button className='buttonRegister' onClick={handleSubmit} >Cadastrar</button>
+                {/* <Popup trigger={ <button className='buttonRegister' >Cadastrar</button> } modal >
                     {close => <Sucess close={close} info={'adicionados'} funcs={handleSubmit} /> }
-                </Popup>
+                </Popup> */}
+                {s}
+                <Popup modal > {close => <Sucess close={close} info={'adicionados'} /> } </Popup>
             </div>
         </main>
     )
