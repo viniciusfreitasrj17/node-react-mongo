@@ -36,6 +36,7 @@ function Register({ onSubmit }) {
         setImgUrl('')
         setPrice(0)
         setAmount(0)
+
     }
 
     return (

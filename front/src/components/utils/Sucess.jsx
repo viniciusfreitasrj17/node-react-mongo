@@ -12,7 +12,10 @@ function Sucess({ close, info, funcs, closed }) {
                 close()
                 setTimeout(() => (closed) ? closed() : false, 75)
                 // if(info === 'atualizados') { window.location.reload() }
-                setTimeout(() => window.location.reload(), 100)
+                setTimeout(() => {
+                    if(info !== 'adicionados') {
+                    window.location.reload()
+                }}, 100)
             }} > OK </button>
         </main>
     )
