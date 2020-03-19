@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import Popup from 'reactjs-popup'
-import { Link } from 'react-router-dom'
 
-import Sucess from '../utils/Sucess'
+import { Link } from 'react-router-dom'
 
 import './styles.css'
 
@@ -13,8 +11,6 @@ function Register({ onSubmit }) {
     const [imgUrl, setImgUrl] = useState('')
     const [price, setPrice] = useState(0)
     const [amount, setAmount] = useState(0)
-
-    const [s, setS] = useState('')
 
     async function handleSubmit(e) {
         e.preventDefault()
@@ -38,8 +34,6 @@ function Register({ onSubmit }) {
         setImgUrl('')
         setPrice(0)
         setAmount(0)
-
-        setS(<Popup modal > {close => <Sucess close={close} info={'adicionados'} /> } </Popup>)
     }
 
     return (
@@ -117,11 +111,6 @@ function Register({ onSubmit }) {
                 </div>
 
                 <button className='buttonRegister' onClick={handleSubmit} >Cadastrar</button>
-                {/* <Popup trigger={ <button className='buttonRegister' >Cadastrar</button> } modal >
-                    {close => <Sucess close={close} info={'adicionados'} funcs={handleSubmit} /> }
-                </Popup> */}
-                {s}
-                <Popup modal > {close => <Sucess close={close} info={'adicionados'} /> } </Popup>
             </div>
         </main>
     )

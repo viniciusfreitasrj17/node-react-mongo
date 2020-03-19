@@ -21,10 +21,10 @@ const Routes = () => {
   }, [])
 
   async function handleSubmit(d) {
-    await api.post('/prod', d)
+    const { data } = await api.post('/prod', d)
     
     // console.log([prod, data])
-    // setProd([...prod, data])
+    setProd([...prod, data])
     // setLoad(load + 1)
   }
 
