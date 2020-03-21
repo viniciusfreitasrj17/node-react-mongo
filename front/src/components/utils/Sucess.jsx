@@ -6,11 +6,12 @@ function Sucess({ close, info, funcs, closed }) {
 
     return (
         <main className='popupInformation' >
-            {setTimeout(() => {
+            <h1 style={{display: 'none'}} > {setTimeout(() => {
                 if(!!funcs) {
                     funcs()
                 }
             }, 150)}
+            </h1>
             <h1> {`Novos dados ${info} com sucesso`} </h1>
             <button className='popupOk' onClick={() => {
                 close()
